@@ -4,14 +4,17 @@
   padding: 16px 24px;
   max-width: 327px;
   margin: 0 auto;
+  height: calc(100vh - (16px*2) - 80px);
 
   @include onLargeMobile {
     padding: 40px;
     max-width: 350px;
+    height: calc(100vh - (40px*2) - 80px);
   }
 
   @include onTablet {
     padding: 120px 80px;
     max-width: 528px;
+    height: calc(100vh - (120px*2) - 80px);
   }
 }
