@@ -8,20 +8,17 @@ import NotFoundPage from './pages/NotFoundPage'
 import Header from './components/Header/Header'
 
 function App() {
-
-
   return (
     <>
       <Header />
-<main>
-  
+      <main>
         <Routes>
           <Route path='/' element={<Questionnaire />} />
           <Route path='/movie-search' element={<MovieSearch />} />
           <Route path='/result' element={<MovieResult />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-</main>
+      </main>
     </>
   )
 }

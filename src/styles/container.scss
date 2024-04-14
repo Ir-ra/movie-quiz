@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px;
+  max-width: 327px;
+  margin: 0 auto;
+
+  @include onLargeMobile {
+    padding: 40px;
+    max-width: 350px;
+  }
+
+  @include onTablet {
+    padding: 120px 80px;
+    max-width: 528px;
+  }
+}

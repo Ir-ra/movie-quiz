@@ -1,0 +1,21 @@
+.questionnaire {
+  display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: auto;
+  justify-content: space-between;
+  
+    @include onLargeMobile {
+      gap: 40px;
+    }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  
+    @include onLargeMobile {
+      gap: 40px;
+    }
+  }
+}

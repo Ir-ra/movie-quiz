@@ -1,0 +1,89 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include onLargeMobile {
+    gap: 24px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid $grey;
+    background: $white;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in;
+
+    @include onLargeMobile {
+      padding: 20px 16px;
+    }
+
+    &--selected {
+      border: 1px solid $green;
+
+      .select__check--label::before {
+        background-color: $green;
+        color: $white;
+        border: 2px solid $green;
+      }
+    }
+
+    &:hover {
+      border: 1px solid $green;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &--icon {
+      display: flex;
+      width: 32px;
+      height: 32px;
+    }
+
+    &--text {
+      font-size: 16px;
+    }
+  }
+
+  &__check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--label {
+      margin-right: auto;
+      position: relative;
+
+      &::before {
+        content: "\2714";
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        border: 2px solid $grey;
+        background-color: $white;
+        border-radius: 50%;
+        color: $white;
+      }
+    }
+
+    &--input {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 0;
+      opacity: 0;
+    }
+  }
+}
