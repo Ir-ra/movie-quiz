@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import Button from "../components/Button/Button";
+import Result from "../components/Result/Result";
 
 export interface Movie {
   title: string;
@@ -39,16 +41,19 @@ export default function MovieResult() {
       .finally(() => setLoading(false))
   }, [searchQuery, setMovies]);
 
+  const sortedMovies = movies
+    .sort((a, b) => +b.year.slice(0, 4) - +a.year.slice(0, 4))
+    .filter(movie => movie.poster !== 'N/A');
+
   return (
-    <div className="contaiter">
+    <div className="container">
       {loading && 'Loading ... '}
-      {movies.map((m, i) => (
-        <ul key={i}>
-          <li>
-            <img src={m.poster} alt={m.title} />
-          </li>
-        </ul>
-      ))}
+
+      {!loading && (
+        <Result sortedMovies={sortedMovies} />
+      )}
+
+      <Button text='Continue' />
     </div>
   )
 }

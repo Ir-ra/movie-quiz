@@ -13,8 +13,7 @@
   }
 
   @include onTablet {
-    padding: 120px 80px;
+    padding: 0 80px;
     max-width: 528px;
-    height: calc(100vh - (120px*2) - 80px);
   }
 }

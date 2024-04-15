@@ -1,7 +1,7 @@
 export default function Button({ text, isSelected, onClick }: {
   text: string;
-  isSelected: boolean;
-  onClick: () => void;
+  isSelected?: boolean;
+  onClick?: () => void;
 }) {
    return (
     <button
