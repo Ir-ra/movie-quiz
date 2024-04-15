@@ -1,0 +1,10 @@
+.movieSearch {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 150px;
+
+  @include onTablet {
+    margin-top: 50px;
+  }
+}

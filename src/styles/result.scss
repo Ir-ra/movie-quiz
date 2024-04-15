@@ -1,0 +1,130 @@
+.result {
+  display: flex;
+  justify-content: center;
+
+  height: 90%;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 199px;
+    height: 296px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 16px;
+    box-shadow: 0px 190px 53px 0px rgba(0, 0, 0, 0.00), 0px 122px 49px 0px rgba(0, 0, 0, 0.01), 0px 68px 41px 0px rgba(0, 0, 0, 0.03), 0px 30px 30px 0px rgba(0, 0, 0, 0.04), 0px 8px 17px 0px rgba(0, 0, 0, 0.05);
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @include onLargeMobile {
+      width: 254px;
+      height: 377px;
+    }
+
+    @include onTablet {
+      width: 304px;
+      height: 453px;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+
+    border-radius: 16px;
+  }
+
+  &__list {
+    min-width: 200px;
+    height: auto;
+    display: flex;
+    gap: 50px;
+    height: auto;
+    color: $black;
+    max-height: 100vh;
+    overflow-y: auto;
+    margin-top: 5px;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+    @include onLargeMobile {
+      gap: 55px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+
+      &-thumb {
+        background-color: $grey;
+        border-radius: 6px;
+      }
+
+      &-track {
+        background-color: $white;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &--title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.25;
+
+      @include onTablet {
+        font-size: 32px;
+        line-height: 1.12;
+      }
+    }
+
+    &--year {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+  }
+
+  &__notFound {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 24px;
+
+    @include onLargeMobile {
+      gap: 40px;
+    }
+
+    &--img {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: auto;
+      width: 135px;
+      height: 135px;
+    }
+  }
+}

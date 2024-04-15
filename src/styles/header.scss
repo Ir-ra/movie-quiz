@@ -1,0 +1,67 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  padding: 16px 24px;
+  gap: 16px;
+  width: 327px;
+  margin: 0 auto;
+
+  @include onLargeMobile {
+    padding: 16px 40px 24px;
+    width: 350px;
+  }
+
+  @include onTablet {
+    padding: 16px 120px 24px;
+    width: 528px;
+  }
+
+  @include onDesktop {
+    padding: 16px 120px 24px;
+  }
+
+  &__back-img {
+    display: block;
+    position: absolute;
+    top: 0;
+    background-image: url('/top_background.svg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: top;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    left: 0;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__right-side {
+    display: flex;
+    gap: 16px;
+
+    @include onTablet {
+      gap: 24px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    outline: none;
+    border: none;
+
+    &--select {
+      filter: invert(1);
+    }
+  }
+}
+
+

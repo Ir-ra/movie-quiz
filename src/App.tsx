@@ -1,23 +1,27 @@
-import { useState } from 'react'
-import './App.css'
+
+import { Route, Routes } from 'react-router-dom'
+import './App.scss'
+import Questionnaire from './pages/Questionnaire'
+import MovieSearch from './pages/MovieSearch'
+import MovieResult from './pages/MovieResult'
+import NotFoundPage from './pages/NotFoundPage'
+import Header from './components/Header/Header'
+import { ProgressProvider } from './context/ProgressContext'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1>Movie-app</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <ProgressProvider>
+      <Header />
+      <main>
+        <Routes>
+          <Route path='/' element={<Questionnaire />} />
+          <Route path='/movie-search' element={<MovieSearch />} />
+          <Route path='/result' element={<MovieResult />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
+      </ProgressProvider>
     </>
   )
 }
