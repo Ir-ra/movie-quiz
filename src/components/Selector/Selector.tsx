@@ -11,7 +11,7 @@ interface Genre {
 
 export default function Selector({ selectedOption, setSelectedOption, setIsSelected }: {
   selectedOption: string;
-  setSelectedOption: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedOption:(option: string) => void;
   setIsSelected: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
 

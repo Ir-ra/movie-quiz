@@ -3,12 +3,13 @@
   height: 4px;
   border: none;
   overflow: hidden;
-  background: linear-gradient(270deg, #4AD6BB 0%, #38A58F 100%);
+  background-color: rgb(255, 255, 255);
+  
   border-radius: 100px;
 
   &__line {
     height: 100%;
-    background-color: rgb(255, 255, 255);
+    background: linear-gradient(270deg, #4AD6BB 0%, #38A58F 100%);
     transition: width 0.5s ease-in-out;
     border-radius: 100px;
   }

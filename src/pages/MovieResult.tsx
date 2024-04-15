@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import Button from "../components/Button/Button";
 import Result from "../components/Result/Result";
+import { Loader } from "../components/Loader/Loader";
 
 export interface Movie {
   title: string;
@@ -12,10 +13,7 @@ export interface Movie {
 export default function MovieResult() {
   const [movies, setMovies] = useLocalStorage<Movie[]>('movies', []);
   const [loading, setLoading] = useState(false);
-
   const [searchQuery] = useLocalStorage('searchQuery', '');
-  console.log('movies', movies);
-
   const API_KEY = "fc0349e3";
 
   useEffect(() => {
@@ -47,7 +45,7 @@ export default function MovieResult() {
 
   return (
     <div className="container">
-      {loading && 'Loading ... '}
+      {loading && <Loader />}
 
       {!loading && (
         <Result sortedMovies={sortedMovies} />

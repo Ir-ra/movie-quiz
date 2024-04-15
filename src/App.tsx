@@ -6,10 +6,12 @@ import MovieSearch from './pages/MovieSearch'
 import MovieResult from './pages/MovieResult'
 import NotFoundPage from './pages/NotFoundPage'
 import Header from './components/Header/Header'
+import { ProgressProvider } from './context/ProgressContext'
 
 function App() {
   return (
     <>
+    <ProgressProvider>
       <Header />
       <main>
         <Routes>
@@ -19,6 +21,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
+      </ProgressProvider>
     </>
   )
 }
