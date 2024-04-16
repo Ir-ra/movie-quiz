@@ -10,16 +10,14 @@ interface Genre {
   icon: string;
 }
 
-export default function Selector({ selectedOption, setSelectedOption, setIsSelected }: {
+const Selector = React.memo(({ selectedOption, setSelectedOption, setIsSelected }: {
   selectedOption: string;
-  setSelectedOption:(option: string) => void;
+  setSelectedOption: (option: string) => void;
   setIsSelected: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+}) => {
 
   const handleSelect = (genre: string) => {
     setSelectedOption(genre);
-    console.log(genre);
-    
     setIsSelected(true);
   };
 
@@ -52,7 +50,6 @@ export default function Selector({ selectedOption, setSelectedOption, setIsSelec
                 id={`checkbox-${genre.name}`}
                 type="checkbox"
                 className='select__check--input'
-                onChange={() => handleSelect(genre.name)}
               />
             </label>
 
@@ -61,6 +58,6 @@ export default function Selector({ selectedOption, setSelectedOption, setIsSelec
       ))}
     </div>
   )
-}
+})
 
-// export default Selector;
+export default Selector;
