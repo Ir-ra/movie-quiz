@@ -1,5 +1,6 @@
 {
   "name": "movie-quiz",
+  "homepage": "https://ir-ra.github.io/movie-quiz",
   "private": true,
   "version": "0.0.0",
   "type": "module",
