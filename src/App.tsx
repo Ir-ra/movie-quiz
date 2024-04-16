@@ -15,9 +15,9 @@ function App() {
       <Header />
       <main>
         <Routes>
-          <Route path='/movie-quiz/' element={<Questionnaire />} />
-          <Route path='/movie-search' element={<MovieSearch />} />
-          <Route path='/result' element={<MovieResult />} />
+          <Route path='/' element={<Questionnaire />} />
+          <Route path='movie-search' element={<MovieSearch />} />
+          <Route path='result' element={<MovieResult />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
