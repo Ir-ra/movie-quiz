@@ -11,7 +11,7 @@ export default function Header() {
 
   useEffect(() => {
     switch (pathname) {
-      case '/':
+      case '/movie-quiz/':
         if (currentStep !== ProgressSteps.Start) {
           setCurrentStep(ProgressSteps.Choose);
         } else {
