@@ -16,11 +16,16 @@ export default function Questionnaire() {
     navigate('/movie-search');
   };
 
-  const handleOptionSelect = useCallback((option: string) => {
+  // const handleOptionSelect = useCallback((option: string) => {
+  //   setSelectedOption(option);
+  //   setIsSelected(true);
+  //   setCurrentStep(ProgressSteps.Choose)
+  // }, [setSelectedOption, setCurrentStep]);
+  const handleOptionSelect = (option: string) => {
     setSelectedOption(option);
     setIsSelected(true);
     setCurrentStep(ProgressSteps.Choose)
-  }, [setSelectedOption, setCurrentStep]);
+  };
 
   return (
     <div className="container">

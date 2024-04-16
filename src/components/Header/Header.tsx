@@ -3,6 +3,7 @@ import GoBackButton from "../GoBackButton/GoBackButton"
 import { useContext, useEffect } from "react";
 import { ProgressContext, ProgressSteps } from "../../context/ProgressContext";
 import Progress from "../Progress/Progress";
+import burger from '../../assets/burger.svg';
 
 export default function Header() {
   const { pathname } = useLocation();
@@ -40,7 +41,7 @@ export default function Header() {
 
           <button className="header__button">
             <img
-              src="/src/assets/burger.svg"
+              src={burger}
               alt="burger menu"
               className="header__button--burger" />
           </button>

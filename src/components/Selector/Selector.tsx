@@ -10,14 +10,16 @@ interface Genre {
   icon: string;
 }
 
-const Selector = React.memo(({ selectedOption, setSelectedOption, setIsSelected }: {
+export default function Selector({ selectedOption, setSelectedOption, setIsSelected }: {
   selectedOption: string;
-  setSelectedOption: (option: string) => void;
+  setSelectedOption:(option: string) => void;
   setIsSelected: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+}) {
 
   const handleSelect = (genre: string) => {
     setSelectedOption(genre);
+    console.log(genre);
+    
     setIsSelected(true);
   };
 
@@ -59,6 +61,6 @@ const Selector = React.memo(({ selectedOption, setSelectedOption, setIsSelected 
       ))}
     </div>
   )
-})
+}
 
-export default Selector;
+// export default Selector;

@@ -1,3 +1,4 @@
+import back from '../../assets/back.svg';
 export default function GoBackButton({ pathname }: {
   pathname: string;
 }) {
@@ -9,7 +10,7 @@ export default function GoBackButton({ pathname }: {
       disabled={pathname === '/'}
     >
       <img
-        src="/src/assets/back.svg"
+        src={back}
         alt="arrow back"
         className={`header__button--arrow ${pathname === '/' ? 'header__button--select' : ''}`} />
     </button>
