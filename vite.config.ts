@@ -6,7 +6,4 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: BASE_URL,
   plugins: [react()],
-  define: {
-    'import.meta.env.BASE_URL': JSON.stringify(BASE_URL),
-  },
 })
