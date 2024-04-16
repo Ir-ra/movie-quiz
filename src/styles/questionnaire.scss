@@ -1,12 +1,12 @@
 .questionnaire {
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
 
-    &__content {
+  &__content {
     display: flex;
     flex-direction: column;
     gap: 24px;
-  
+
     @include onLargeMobile {
       gap: 40px;
     }

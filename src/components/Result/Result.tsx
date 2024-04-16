@@ -8,7 +8,7 @@ export default function Result({ sortedMovies }: {
   return (
     <div className="result">
       <ul className="result__list">
-        {sortedMovies.length ?
+        {sortedMovies.length > 0 ?
           (sortedMovies.map((m,) => (
             <li key={`${m.title}_${m.year}`} className="result__item">
               <div className="result__img-container">
@@ -21,7 +21,7 @@ export default function Result({ sortedMovies }: {
             </li>
           ))) : (
             <div className="result__notFound">
-              <img src={Girl} alt="" className="result__notFound--img" />
+              <img src={Girl} alt="girl facepalm icon" className="result__notFound--img" />
               <Title text="Oops, no movie found" />
             </div>
           )}

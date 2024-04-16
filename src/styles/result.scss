@@ -1,7 +1,6 @@
 .result {
   display: flex;
   justify-content: center;
-
   height: 90%;
 
   &__item {
@@ -14,15 +13,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    width: 199px;
-    height: 296px;
     position: relative;
-    box-sizing: border-box;
     overflow: hidden;
     margin: auto;
+    width: 199px;
+    height: 296px;
+
+    border: 2px solid transparent;
     border-radius: 16px;
     box-shadow: 0px 190px 53px 0px rgba(0, 0, 0, 0.00), 0px 122px 49px 0px rgba(0, 0, 0, 0.01), 0px 68px 41px 0px rgba(0, 0, 0, 0.03), 0px 30px 30px 0px rgba(0, 0, 0, 0.04), 0px 8px 17px 0px rgba(0, 0, 0, 0.05);
+
+    box-sizing: border-box;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      border-color: $green;
+    }
 
     &::after {
       content: "";
@@ -52,18 +58,17 @@
   }
 
   &__list {
-    min-width: 200px;
-    height: auto;
     display: flex;
-    gap: 50px;
-    height: auto;
-    color: $black;
-    max-height: 100vh;
-    overflow-y: auto;
-    margin-top: 5px;
     flex-direction: column;
+    height: auto;
+    min-width: 200px;
+    max-height: 100vh;
+    gap: 50px;
     margin: 0;
     padding: 0;
+
+    color: $black;
+    overflow-y: auto;
 
     @include onLargeMobile {
       gap: 55px;

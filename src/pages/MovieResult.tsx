@@ -54,7 +54,7 @@ export default function MovieResult() {
       {loading && <Loader />}
 
       {!loading && (
-        <Result sortedMovies={sortedMovies} />
+        <Result sortedMovies={sortedMovies}/>
       )}
 
       <Button text='Continue' />
