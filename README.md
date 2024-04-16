@@ -2,13 +2,13 @@
 A quiz mobile app where users choose their preferred movie genre. After completing the test, users enter the name of a movie and get all the movies with that name.
 
 ## DEMO
+[DEMO LINK](https://ir-ra.github.io/movie-quiz/)
 
 ## Technologies used
-* React.js
+* React.js + Vite
 * JSX
 * JavaScript
 * SASS
-* Vite for build and run
 
 ## How to run the project locally
 
