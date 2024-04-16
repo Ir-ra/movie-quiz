@@ -47,7 +47,7 @@ export default function Search({ setIsButtonActive, setSearchQuery }: {
   }, [setMovies, setQuery, setSearchQuery]);
 
   return (
-    <div className={`search`}>
+    <div className='search'>
       <label htmlFor="movieSearch" className="search__label">
         <input
           type="text"
@@ -61,8 +61,17 @@ export default function Search({ setIsButtonActive, setSearchQuery }: {
         />
       </label>
 
-      {validationStatus === 'Error' && <p className="search__error">There are symbols that are not allowed</p>}
-      {validationStatus === 'length_error' && <p className="search__error">There is too many symbols</p>}
+      {validationStatus === 'Error' &&
+        <p className="search__error">
+          There are symbols that are not allowed
+        </p>
+      }
+
+      {validationStatus === 'length_error' &&
+        <p className="search__error">
+          There is too many symbols
+        </p>
+      }
     </div>
   )
 }

@@ -1,26 +1,26 @@
-import { useContext, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import Button from "../components/Button/Button";
 import Selector from "../components/Selector/Selector";
 import Title from "../components/Title/Title";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
-import { ProgressContext } from "../context/ProgressContext";
+import { ProgressContext, ProgressSteps } from "../context/ProgressContext";
 
 export default function Questionnaire() {
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useLocalStorage('selectedOption', '');
   const [isSelected, setIsSelected] = useState(!!selectedOption);
-  const { setProgress } = useContext(ProgressContext);
+  const { setCurrentStep } = useContext(ProgressContext);
 
   const handleNextButtonClick = () => {
     navigate('/movie-search');
   };
 
-  const handleOptionSelect = (option: string) => {
+  const handleOptionSelect = useCallback((option: string) => {
     setSelectedOption(option);
     setIsSelected(true);
-    setProgress(33);
-  };
+    setCurrentStep(ProgressSteps.Choose)
+  }, [setSelectedOption, setCurrentStep]);
 
   return (
     <div className="container">

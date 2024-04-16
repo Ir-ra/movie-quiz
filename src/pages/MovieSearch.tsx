@@ -19,7 +19,10 @@ export default function MovieSearch() {
       <div className="container">
         <div className="movieSearch">
           <Title text="Enter movie title" />
-          <Search setIsButtonActive={setIsButtonActive} setSearchQuery={setSearchQuery}/>
+          <Search
+            setIsButtonActive={setIsButtonActive}
+            setSearchQuery={setSearchQuery}
+          />
         </div>
 
         <Button

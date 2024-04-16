@@ -6,7 +6,7 @@ import MovieSearch from './pages/MovieSearch'
 import MovieResult from './pages/MovieResult'
 import NotFoundPage from './pages/NotFoundPage'
 import Header from './components/Header/Header'
-import { ProgressProvider } from './context/ProgressContext'
+import { ProgressProvider } from './context/ProgressProvider'
 
 function App() {
   return (

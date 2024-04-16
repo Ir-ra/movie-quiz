@@ -1,6 +1,6 @@
-export const GoBackButton = ({pathname}: {
+export default function GoBackButton({ pathname }: {
   pathname: string;
-}) => {
+}) {
   return (
     <button
       type="button"
@@ -11,7 +11,7 @@ export const GoBackButton = ({pathname}: {
       <img
         src="/src/assets/back.svg"
         alt="arrow back"
-        className={`header__button--arrow ${pathname === '/' ? 'header__button--select': ''}`}/>
+        className={`header__button--arrow ${pathname === '/' ? 'header__button--select' : ''}`} />
     </button>
   );
-};
+}

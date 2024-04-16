@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import Button from "../components/Button/Button";
 import Result from "../components/Result/Result";
@@ -20,7 +20,12 @@ export default function MovieResult() {
     setLoading(true);
 
     fetch(`https://www.omdbapi.com/?s=${encodeURIComponent(searchQuery)}&apikey=${API_KEY}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return res.json();
+      })
       .then((data) => {
         if (data.Response === 'True') {
           setMovies(data.Search
@@ -35,13 +40,14 @@ export default function MovieResult() {
           setMovies([]);
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.error("Error fetching data:", err))
       .finally(() => setLoading(false))
   }, [searchQuery, setMovies]);
 
-  const sortedMovies = movies
-    .sort((a, b) => +b.year.slice(0, 4) - +a.year.slice(0, 4))
-    .filter(movie => movie.poster !== 'N/A');
+  const sortedMovies = useMemo(() => movies
+    .filter(movie => movie.poster !== 'N/A')
+    .sort((a, b) => +b.year.slice(0, 4) - +a.year.slice(0, 4)),
+    [movies]);
 
   return (
     <div className="container">
