@@ -1,3 +1,4 @@
+import React from 'react';
 import Drama from '../../assets/emojis/Drama.svg';
 import Comedy from '../../assets/emojis/Comedy.svg';
 import Action from '../../assets/emojis/Action.svg';
@@ -9,11 +10,11 @@ interface Genre {
   icon: string;
 }
 
-export default function Selector({ selectedOption, setSelectedOption, setIsSelected }: {
+const Selector = React.memo(({ selectedOption, setSelectedOption, setIsSelected }: {
   selectedOption: string;
-  setSelectedOption:(option: string) => void;
+  setSelectedOption: (option: string) => void;
   setIsSelected: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+}) => {
 
   const handleSelect = (genre: string) => {
     setSelectedOption(genre);
@@ -58,4 +59,6 @@ export default function Selector({ selectedOption, setSelectedOption, setIsSelec
       ))}
     </div>
   )
-}
+})
+
+export default Selector;

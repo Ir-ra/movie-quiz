@@ -1,29 +1,33 @@
 import { useLocation } from "react-router-dom"
-import { GoBackButton } from "../GoBackButton/GoBackButton"
+import GoBackButton from "../GoBackButton/GoBackButton"
 import { useContext, useEffect } from "react";
-import { ProgressContext } from "../../context/ProgressContext";
+import { ProgressContext, ProgressSteps } from "../../context/ProgressContext";
+import Progress from "../Progress/Progress";
 
 export default function Header() {
   const { pathname } = useLocation();
-  console.log('pathname', pathname);
-  const {progress ,setProgress} = useContext(ProgressContext);
+  const { currentStep, setCurrentStep, percentage } = useContext(ProgressContext);
 
   useEffect(() => {
     switch (pathname) {
       case '/':
-        setProgress(0);
+        if (currentStep !== ProgressSteps.Start) {
+          setCurrentStep(ProgressSteps.Choose);
+        } else {
+          setCurrentStep(ProgressSteps.Start);
+        }
         break;
       case '/movie-search':
-        setProgress(67);
+        setCurrentStep(ProgressSteps.Search);
         break;
       case '/result':
-        setProgress(100);
+        setCurrentStep(ProgressSteps.Finish);
         break;
       default:
-        setProgress(0);
+        setCurrentStep(ProgressSteps.Start);
         break;
     }
-  }, [pathname, setProgress]);
+  }, [currentStep, pathname, setCurrentStep]);
 
   return (
     <header className="header">
@@ -32,7 +36,7 @@ export default function Header() {
         <GoBackButton pathname={pathname} />
 
         <div className="header__right-side">
-          <div>{progress}%</div>
+          <div>{percentage}%</div>
 
           <button className="header__button">
             <img
@@ -43,9 +47,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="progress">
-        <div className="progress__line" style={{ width: `${progress}%` }} />
-      </div>
+      <Progress percentage={percentage} />
     </header>
   )
 }
